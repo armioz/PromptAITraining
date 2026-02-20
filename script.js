@@ -363,3 +363,116 @@ function initCanvas() {
 
     animate();
 }
+
+// ─── Certificate Generation ───────────────────
+function openCertModal() {
+    const modal = document.getElementById('cert-modal');
+    // Ensure modal exists before accessing style
+    if (modal) {
+        modal.style.display = 'block';
+        const input = document.getElementById('cert-name-input');
+        if (input) input.focus();
+    }
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('cert-modal');
+    if (modal) modal.style.display = 'none';
+}
+
+// Close modal if clicked outside
+window.onclick = function (event) {
+    const modal = document.getElementById('cert-modal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+async function generatePDF() {
+    const nameInput = document.getElementById('cert-name-input').value.trim();
+    if (!nameInput) {
+        alert('Please enter your name.');
+        return;
+    }
+
+    const btn = document.querySelector('.cert-confirm-btn');
+    const originalText = btn.innerHTML;
+    btn.textContent = 'Generating...';
+    btn.disabled = true;
+
+    // Update Template
+    document.getElementById('cert-name-display').textContent = nameInput;
+
+    // Dates
+    const now = new Date();
+    const issueDate = now.toLocaleDateString('en-GB'); // DD/MM/YYYY
+    const expireDate = new Date(now.setFullYear(now.getFullYear() + 3)).toLocaleDateString('en-GB');
+
+    document.getElementById('cert-issue-date').textContent = issueDate;
+    document.getElementById('cert-expire-date').textContent = expireDate;
+
+    // Wait a moment for DOM to update and images to load
+    const element = document.getElementById('certificate-template');
+    const images = element.getElementsByTagName('img');
+
+    const loadPromises = Array.from(images).map(img => {
+        if (img.complete) return Promise.resolve();
+        return new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve; // Continue even if one fails
+        });
+    });
+
+    await Promise.all(loadPromises);
+
+    // Also wait for decode to be sure
+    const decodePromises = Array.from(images).map(img => {
+        if (img.decode) return img.decode().catch(() => { });
+        return Promise.resolve();
+    });
+
+    await Promise.all(decodePromises);
+    await new Promise(r => setTimeout(r, 200));
+
+    // Trick: Temporarily move template into view but behind everything for capture
+    const originalLeft = element.style.left;
+    const originalZIndex = element.style.zIndex;
+    element.style.left = '0';
+    element.style.top = '0';
+    element.style.zIndex = '-999';
+
+    try {
+        const canvas = await html2canvas(element, {
+            scale: 2, // High resolution
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#ffffff',
+            width: 1123,
+            height: 794
+        });
+
+        // Restore
+        element.style.left = originalLeft;
+        element.style.zIndex = originalZIndex;
+
+        const imgData = canvas.toDataURL('image/png');
+
+        // A4 landscape: 297mm x 210mm
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('l', 'mm', 'a4');
+
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save(`Prompt_Engineering_Certificate_${nameInput.replace(/\s+/g, '_')}.pdf`);
+
+        closeCertModal();
+    } catch (err) {
+        console.error('PDF Gen Error:', err);
+        alert('Failed to generate PDF. Please check console for details.');
+    } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+}

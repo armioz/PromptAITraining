@@ -197,6 +197,16 @@ const TRANSLATIONS = {
         's12-step3': 'Share & learn from peers',
         's12-step4': 'Iterate, iterate, iterate!',
         's12-quote': 'The quality of your output is a direct reflection of the quality of your input.',
+        'btn-cert': '📜 Get Certificate',
+        'cert-modal-title': 'Get Your Certificate',
+        'cert-modal-desc': 'Enter your name exactly as you want it to appear on the certificate.',
+        'cert-download': 'Download PDF',
+        'cert-title': 'Prompt Engineering Certificate',
+        'cert-subtitle': 'This Certificate is awarded to',
+        'cert-desc': 'for having demonstrated the knowledge, skills, and basic competencies needed to create Prompts using AI in the real world.',
+        'cert-issued': 'Certificate issued on',
+        'cert-valid': 'Certificate valid through',
+        'cert-branding': 'Prompt Engineering Training',
     },
 
     th: {
@@ -390,8 +400,20 @@ const TRANSLATIONS = {
         's12-step1': 'ฝึกทุกวันกับ ChatGPT / Gemini',
         's12-step2': 'สร้างคลัง Prompt ของตัวเอง',
         's12-step3': 'แบ่งปันและเรียนรู้จากเพื่อนร่วมงาน',
+        's12-key3': 'แบ่งปันและเรียนรู้จากเพื่อนร่วมงาน',
         's12-step4': 'ปรับปรุง ปรับปรุง ปรับปรุง!',
         's12-quote': 'คุณภาพของผลลัพธ์สะท้อนถึงคุณภาพของ input ที่คุณให้',
+        'btn-restart': '↺ เริ่มการฝึกอบรมใหม่',
+        'btn-cert': '📜 รับใบประกาศนียบัตร',
+        'cert-modal-title': 'รับใบประกาศนียบัตรของคุณ',
+        'cert-modal-desc': 'กรอกชื่อของคุณตามที่ต้องการให้ปรากฏบนใบประกาศฯ',
+        'cert-download': 'ดาวน์โหลด PDF',
+        'cert-title': 'ประกาศนียบัตร Prompt Engineer',
+        'cert-subtitle': 'ขอมอบใบประกาศนียบัตรฉบับนี้ให้แก่',
+        'cert-desc': 'เพื่อแสดงว่าเป็นผู้มีความรู้ ทักษะ และความสามารถพื้นฐานที่จำเป็นในการสร้าง Prompt โดยใช้ AI ในโลกแห่งความเป็นจริง',
+        'cert-issued': 'ออกให้เมื่อวันที่',
+        'cert-valid': 'มีผลใช้ได้จนถึงวันที่',
+        'cert-branding': 'หลักสูตรการใช้ Prompt AI อย่างมืออาชีพ',
     }
 };
 
