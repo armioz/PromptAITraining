@@ -1,0 +1,962 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Engineering Mastery | Training Program</title>
+  <meta name="description"
+    content="Master the art of Prompt Engineering. A comprehensive training program to help you communicate effectively with AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Sarabun:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Background Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Language Toggle -->
+  <button id="langToggle" class="lang-toggle" onclick="toggleLanguage()">TH</button>
+
+  <!-- Slide Counter -->
+  <div class="slide-counter">
+    <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="nav-dots" id="navDots"></div>
+
+  <!-- Navigation Arrows -->
+  <button class="nav-arrow nav-prev" id="prevBtn" onclick="changeSlide(-1)" aria-label="Previous slide">&#8592;</button>
+  <button class="nav-arrow nav-next" id="nextBtn" onclick="changeSlide(1)" aria-label="Next slide">&#8594;</button>
+
+  <!-- Presentation Container -->
+  <div class="presentation" id="presentation">
+
+    <!-- ===== SLIDE 1: TITLE ===== -->
+    <section class="slide active" id="slide-1" data-slide="1">
+      <div class="slide-content title-slide">
+        <div class="badge animate-in" style="--delay:0.1s" data-i18n="badge-title">🚀 Training Program</div>
+        <h1 class="animate-in" style="--delay:0.2s">
+          Prompt<br />
+          <span class="gradient-text">Engineering</span><br />
+          Mastery
+        </h1>
+        <p class="subtitle animate-in" style="--delay:0.4s" data-i18n-html="s1-sub">
+          Learn how to communicate with AI like a pro.<br />
+          From basics to advanced techniques — all in one place.
+        </p>
+        <div class="title-meta animate-in" style="--delay:0.6s">
+          <div class="meta-item">
+            <span class="meta-icon">📚</span>
+            <span data-i18n="meta-modules">10 Modules</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">⏱️</span>
+            <span data-i18n="meta-paced">Self-paced</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-icon">🎯</span>
+            <span data-i18n="meta-exercises">Practical Exercises</span>
+          </div>
+        </div>
+        <button class="cta-btn animate-in" style="--delay:0.8s" onclick="changeSlide(1)">
+          Begin Training
+          <span class="btn-arrow">→</span>
+        </button>
+        <div class="scroll-hint animate-in" style="--delay:1s" data-i18n="scroll-hint">Press → or click arrow to advance
+        </div>
+      </div>
+      <div class="title-visual">
+        <div class="orbit-ring ring-1"></div>
+        <div class="orbit-ring ring-2"></div>
+        <div class="orbit-ring ring-3"></div>
+        <div class="ai-core">
+          <span>AI</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 2: WHAT IS PROMPT ENGINEERING ===== -->
+    <section class="slide" id="slide-2" data-slide="2">
+      <div class="slide-content m1-layout">
+
+        <!-- LEFT column -->
+        <div class="m1-left">
+          <div class="section-label animate-in" style="--delay:0.05s">Module 01</div>
+          <h2 class="animate-in" style="--delay:0.1s">What is<br><span
+              class="gradient-text">Prompt<br>Engineering?</span></h2>
+
+          <!-- 3 animated stat pills -->
+          <div class="m1-pills animate-in" style="--delay:0.25s">
+            <div class="m1-pill" style="--pc:#0096c7">
+              <span class="m1-pill-icon">🗣️</span>
+              <div>
+                <div class="m1-pill-title">Communication</div>
+                <div class="m1-pill-sub">How you "talk" to AI</div>
+              </div>
+            </div>
+            <div class="m1-pill" style="--pc:#00b4d8">
+              <span class="m1-pill-icon">🔧</span>
+              <div>
+                <div class="m1-pill-title">Engineering</div>
+                <div class="m1-pill-sub">Structured &amp; systematic</div>
+              </div>
+            </div>
+            <div class="m1-pill" style="--pc:#48cae4">
+              <span class="m1-pill-icon">🧠</span>
+              <div>
+                <div class="m1-pill-title">Critical Skill</div>
+                <div class="m1-pill-sub">#1 AI-era competency</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- quote -->
+          <blockquote class="m1-quote animate-in" style="--delay:0.45s">
+            "They don't just type questions — they <em>architect conversations</em> that unlock AI's full potential."
+          </blockquote>
+        </div>
+
+        <!-- RIGHT column: Before / After -->
+        <div class="m1-right animate-in" style="--delay:0.3s">
+          <div class="m1-ba-label">Prompt Engineering in Action</div>
+
+          <div class="m1-ba-card bad">
+            <div class="m1-ba-tag bad">❌ Before</div>
+            <code class="m1-ba-code">"Write something about marketing."</code>
+            <div class="m1-ba-result">→ Generic, vague, unusable 😞</div>
+          </div>
+
+          <div class="m1-ba-arrow">⚡ Apply Prompt Engineering</div>
+
+          <div class="m1-ba-card good">
+            <div class="m1-ba-tag good">✅ After</div>
+            <code
+              class="m1-ba-code">"<span style="color:#38bdf8">Act as a senior digital marketer.</span> <span style="color:#38bdf8">Write a 200-word Instagram caption.</span> <span style="color:#67e8f9">For a Thai skincare brand</span> <span style="color:#c084fc">targeting women 25–35.</span> <span style="color:#a5b4fc">Tone: warm, confident.</span> <span style="color:#f472b6">Include 3 hashtags.</span>"</code>
+            <div class="m1-ba-result">→ Specific, actionable, professional 🚀</div>
+          </div>
+
+          <!-- keyword tags -->
+          <div class="m1-tags">
+            <span class="m1-tag" style="--tc:#7dd3fc">Role</span>
+            <span class="m1-tag" style="--tc:#38bdf8">Task</span>
+            <span class="m1-tag" style="--tc:#67e8f9">Context</span>
+            <span class="m1-tag" style="--tc:#93c5fd">Audience</span>
+            <span class="m1-tag" style="--tc:#a5b4fc">Tone</span>
+            <span class="m1-tag" style="--tc:#bae6fd">Format</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===== SLIDE 3: WHY IT MATTERS ===== -->
+    <section class="slide" id="slide-3" data-slide="3">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s" data-i18n="s3-label">Module 02</div>
+        <h2 class="animate-in" style="--delay:0.2s">Why Does It <span class="gradient-text">Matter?</span></h2>
+
+        <div class="two-col animate-in" style="--delay:0.3s">
+          <div class="col-left">
+            <div class="stat-block">
+              <div class="stat-number">10x</div>
+              <div class="stat-label" data-i18n="s3-stat1-label">Better output quality with well-crafted prompts</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-number">80%</div>
+              <div class="stat-label" data-i18n="s3-stat2-label">Of AI users use less than 20% of its real power</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-number">#1</div>
+              <div class="stat-label" data-i18n="s3-stat3-label">Most in-demand AI skill by employers in 2024–2025</div>
+            </div>
+          </div>
+          <div class="col-right">
+            <h3 data-i18n="s3-bad-h3">Without good prompting:</h3>
+            <ul class="check-list negative">
+              <li data-i18n="s3-bad-1">❌ Vague, generic answers</li>
+              <li data-i18n="s3-bad-2">❌ Repeated clarification loops</li>
+              <li data-i18n="s3-bad-3">❌ Missed context & wrong tone</li>
+              <li data-i18n="s3-bad-4">❌ Wasted time and effort</li>
+            </ul>
+            <h3 style="margin-top:1.5rem" data-i18n="s3-good-h3">With good prompting:</h3>
+            <ul class="check-list positive">
+              <li data-i18n="s3-good-1">✅ Precise, tailored outputs</li>
+              <li data-i18n="s3-good-2">✅ First-try accuracy</li>
+              <li data-i18n="s3-good-3">✅ Consistent, reusable results</li>
+              <li data-i18n="s3-good-4">✅ Massive productivity gains</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 4: WHAT MAKES A GOOD PROMPT ===== -->
+    <section class="slide" id="slide-4" data-slide="4">
+      <div class="slide-content gp-layout">
+
+        <!-- Header -->
+        <div class="gp-header animate-in" style="--delay:0.05s">
+          <div class="section-label" data-i18n="s4-label">Module 03</div>
+          <h2>What makes a <span class="gradient-text">good prompt?</span></h2>
+        </div>
+
+        <!-- 2-column staggered grid -->
+        <div class="gp-grid animate-in" style="--delay:0.15s">
+
+          <!-- LEFT column -->
+          <div class="gp-col">
+            <div class="gp-card" style="--gc:#0096c7">
+              <div class="gp-badge">TASK</div>
+              <div class="gp-body">
+                <div class="gp-rule">Use action verbs: <em>generate, write, analyze, summarize</em></div>
+                <code class="gp-ex">"Write a 3-paragraph summary of…"</code>
+              </div>
+            </div>
+            <div class="gp-card" style="--gc:#48cae4">
+              <div class="gp-badge">EXEMPLARS</div>
+              <div class="gp-body">
+                <div class="gp-rule">Provide examples so the AI matches your expected style</div>
+                <code class="gp-ex">"Respond like this example: Q: ... A: ..."</code>
+              </div>
+            </div>
+            <div class="gp-card" style="--gc:#90e0ef">
+              <div class="gp-badge">FORMAT</div>
+              <div class="gp-body">
+                <div class="gp-rule">Define the end result — structure, length, style</div>
+                <code class="gp-ex">"Return as a table with 3 columns: Issue, Cause, Action"</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT column (offset) -->
+          <div class="gp-col gp-col-right">
+            <div class="gp-card" style="--gc:#00b4d8">
+              <div class="gp-badge">CONTEXT</div>
+              <div class="gp-body">
+                <div class="gp-rule">Limit endless possibilities — give background that matters:</div>
+                <ul class="gp-bullets">
+                  <li>What is the user's <u>background</u>?</li>
+                  <li>What does <u>success</u> look like?</li>
+                  <li>What <u>environment</u> are they in?</li>
+                </ul>
+                <code class="gp-ex">"I'm a QA engineer in a medical device company…"</code>
+              </div>
+            </div>
+            <div class="gp-card" style="--gc:#0077b6">
+              <div class="gp-badge">PERSONA</div>
+              <div class="gp-body">
+                <div class="gp-rule">Who do you want the AI to be? (Think: someone you wish you had for this task)</div>
+                <code class="gp-ex">"Act as a senior ISO 13485 compliance consultant…"</code>
+              </div>
+            </div>
+            <div class="gp-card" style="--gc:#0d47a1">
+              <div class="gp-badge">TONE</div>
+              <div class="gp-body">
+                <div class="gp-rule">Provide the feeling you are going for</div>
+                <code class="gp-ex">"Use a formal, professional tone suitable for an audit report"</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 example switcher -->
+        <div class="gp-examples animate-in" style="--delay:0.5s">
+          <div class="gp-ex-tabs">
+            <button class="gp-ex-tab active" onclick="gpSwitch(0,this)">🏭 Production Engineer</button>
+            <button class="gp-ex-tab" onclick="gpSwitch(1,this)">🏢 Facility Engineer</button>
+            <button class="gp-ex-tab" onclick="gpSwitch(2,this)">🔬 Quality Engineer</button>
+          </div>
+
+          <!-- Example 0: Production Engineer -->
+          <div class="gp-ex-panel active" id="gpex-0">
+            <div class="gp-ex-header">
+              <span class="gp-ex-title">🏭 Production Engineer — Machine Downtime Investigation</span>
+              <div class="gp-ex-legend">
+                <span style="color:#fb923c">■ Persona</span>
+                <span style="color:#facc15">■ Task</span>
+                <span style="color:#4ade80">■ Context</span>
+                <span style="color:#60a5fa">■ Format</span>
+                <span style="color:#c084fc">■ Exemplar</span>
+                <span style="color:#f472b6">■ Tone</span>
+              </div>
+            </div>
+            <p class="gp-ex-text">
+              "<span style="color:#fb923c">Act as a senior production engineer with 15 years of experience in injection
+                molding manufacturing.</span>
+              <span style="color:#facc15">Identify the root cause of machine downtime spikes that occur every Monday
+                morning on Line 3.</span>
+              <span style="color:#4ade80">We run 3 shifts, 5 days a week; downtime increased 40% over the past 3 weeks
+                during the 06:00–08:00 shift change. Maintenance logs are attached.</span>
+              <span style="color:#60a5fa">Return a numbered list of the top 5 most likely causes, each with a Likelihood
+                score (1–5) and the data needed to confirm.</span>
+              <span style="color:#c084fc">Format each as: Cause: [name] | Likelihood: [1-5] | Evidence to confirm: [what
+                to check]</span>
+              <span style="color:#f472b6">Use direct, technical language suitable for presenting to a production team
+                meeting."</span>
+            </p>
+          </div>
+
+          <!-- Example 1: Facility Engineer -->
+          <div class="gp-ex-panel" id="gpex-1">
+            <div class="gp-ex-header">
+              <span class="gp-ex-title">🏢 Facility Engineer — 2nd Floor Air Quality Investigation</span>
+              <div class="gp-ex-legend">
+                <span style="color:#fb923c">■ Persona</span>
+                <span style="color:#facc15">■ Task</span>
+                <span style="color:#4ade80">■ Context</span>
+                <span style="color:#60a5fa">■ Format</span>
+                <span style="color:#c084fc">■ Exemplar</span>
+                <span style="color:#f472b6">■ Tone</span>
+              </div>
+            </div>
+            <p class="gp-ex-text">
+              "<span style="color:#fb923c">Act as an Environmental Health and Safety (EHS) specialist with expertise in
+                indoor air quality management.</span>
+              <span style="color:#facc15">Investigate elevated particulate matter (PM2.5) readings on the 2nd floor
+                production area and propose a corrective action plan.</span>
+              <span style="color:#4ade80">Air quality sensors triggered alerts between 08:00–11:00 AM daily this week.
+                The 2nd floor has 8 PCB soldering stations and a screen-printing area. The HVAC system was last serviced
+                6 months ago. No incidents reported yet but readings are 2× the acceptable threshold.</span>
+              <span style="color:#60a5fa">Create an investigation checklist as a table with columns: Check Item |
+                Priority (H/M/L) | Responsible Person | Target Deadline.</span>
+              <span style="color:#c084fc">Example row: Check Item: HVAC filter condition | Priority: H | Responsible:
+                Facility team | Deadline: Within 24 hrs</span>
+              <span style="color:#f472b6">Use safety-first, regulatory-compliant language appropriate for an EHS
+                report."</span>
+            </p>
+          </div>
+
+          <!-- Example 2: Quality Engineer -->
+          <div class="gp-ex-panel" id="gpex-2">
+            <div class="gp-ex-header">
+              <span class="gp-ex-title">🔬 Quality Engineer — Product Defect Root Cause Analysis</span>
+              <div class="gp-ex-legend">
+                <span style="color:#fb923c">■ Persona</span>
+                <span style="color:#facc15">■ Task</span>
+                <span style="color:#4ade80">■ Context</span>
+                <span style="color:#60a5fa">■ Format</span>
+                <span style="color:#c084fc">■ Exemplar</span>
+                <span style="color:#f472b6">■ Tone</span>
+              </div>
+            </div>
+            <p class="gp-ex-text">
+              "<span style="color:#fb923c">Act as a Six Sigma Black Belt quality engineer specializing in medical device
+                manufacturing.</span>
+              <span style="color:#facc15">Perform a root cause analysis on a sudden 8% visual defect rate increase on
+                our catheter assembly line.</span>
+              <span style="color:#4ade80">The defect (surface contamination) started appearing 3 days ago after a raw
+                material batch change from Supplier A to Supplier B. The line speed was unchanged. 3 out of 5 operators
+                flagged the same defect type. Customer shipment deadline is in 5 days.</span>
+              <span style="color:#60a5fa">Structure the output as a 5-Why analysis followed by a CAPA table with
+                columns: Root Cause | Corrective Action | Owner | Due Date.</span>
+              <span style="color:#c084fc">Example: Root Cause: Material viscosity variance | Corrective Action: Request
+                CoA and batch retest | Owner: QA Lead | Due: 24 hrs</span>
+              <span style="color:#f472b6">Use precise, technical language suitable for a customer quality report and
+                internal CAPA system."</span>
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+
+    <!-- ===== SLIDE 5: CORE TECHNIQUES ===== -->
+    <section class="slide" id="slide-5" data-slide="5">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s" data-i18n="s5-label">Module 04</div>
+        <h2 class="animate-in" style="--delay:0.2s" data-i18n-html="s5-h2">Core <span
+            class="gradient-text">Techniques</span></h2>
+
+        <div class="techniques-grid animate-in" style="--delay:0.3s">
+          <div class="technique-card">
+            <div class="technique-num">01</div>
+            <h3 data-i18n="s5-t1-title">Zero-Shot Prompting</h3>
+            <p data-i18n="s5-t1-desc">Give the AI a task with no examples. Works best for simple, clear instructions.
+            </p>
+            <code class="mini-code">"Translate this to Spanish: Hello world"</code>
+          </div>
+          <div class="technique-card">
+            <div class="technique-num">02</div>
+            <h3 data-i18n="s5-t2-title">Few-Shot Prompting</h3>
+            <p data-i18n="s5-t2-desc">Provide 2–5 examples before your actual request to guide the AI's style and
+              format.</p>
+            <code class="mini-code">"Q: Capital of France? A: Paris\nQ: Capital of Japan? A: ___"</code>
+          </div>
+          <div class="technique-card">
+            <div class="technique-num">03</div>
+            <h3 data-i18n="s5-t3-title">Chain-of-Thought</h3>
+            <p data-i18n="s5-t3-desc">Ask the AI to "think step by step" to improve reasoning on complex tasks.</p>
+            <code class="mini-code">"Solve this problem step by step: ..."</code>
+          </div>
+          <div class="technique-card">
+            <div class="technique-num">04</div>
+            <h3 data-i18n="s5-t4-title">Role Prompting</h3>
+            <p data-i18n="s5-t4-desc">Assign a specific expert role to tune the AI's perspective and vocabulary.</p>
+            <code class="mini-code">"You are a senior cybersecurity expert..."</code>
+          </div>
+          <div class="technique-card">
+            <div class="technique-num">05</div>
+            <h3 data-i18n="s5-t5-title">Constraint Setting</h3>
+            <p data-i18n="s5-t5-desc">Set explicit limitations: word count, format, tone, or what to avoid.</p>
+            <code class="mini-code">"In under 100 words, formal tone, no jargon..."</code>
+          </div>
+          <div class="technique-card">
+            <div class="technique-num">06</div>
+            <h3 data-i18n="s5-t6-title">Iterative Refinement</h3>
+            <p data-i18n="s5-t6-desc">Treat prompting as a conversation. Refine based on output until you get
+              perfection.</p>
+            <code class="mini-code">"Good, now make it more concise and add examples..."</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 6: COMMON MISTAKES ===== -->
+    <section class="slide" id="slide-6" data-slide="6">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s">Module 05</div>
+        <h2 class="animate-in" style="--delay:0.2s">Common <span class="gradient-text">Mistakes</span> to Avoid</h2>
+
+        <div class="mistakes-list animate-in" style="--delay:0.3s">
+          <div class="mistake-item">
+            <div class="mistake-before">
+              <div class="label bad">❌ Bad Prompt</div>
+              <code>"Write about marketing."</code>
+            </div>
+            <div class="mistake-arrow">→</div>
+            <div class="mistake-after">
+              <div class="label good">✅ Better Prompt</div>
+              <code>"Write a 300-word social media marketing strategy for a Thai tea brand targeting Gen Z audiences on Instagram."</code>
+            </div>
+          </div>
+
+          <div class="mistake-item">
+            <div class="mistake-before">
+              <div class="label bad">❌ Bad Prompt</div>
+              <code>"Make this better."</code>
+            </div>
+            <div class="mistake-arrow">→</div>
+            <div class="mistake-after">
+              <div class="label good">✅ Better Prompt</div>
+              <code>"Rewrite this paragraph to be more concise, professional, and suitable for a formal business email."</code>
+            </div>
+          </div>
+
+          <div class="mistake-item">
+            <div class="mistake-before">
+              <div class="label bad">❌ Bad Prompt</div>
+              <code>"Explain AI."</code>
+            </div>
+            <div class="mistake-arrow">→</div>
+            <div class="mistake-after">
+              <div class="label good">✅ Better Prompt</div>
+              <code>"Explain artificial intelligence to a 10-year-old using a simple analogy. Keep it under 150 words."</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-bar animate-in" style="--delay:0.7s">
+          💡 <strong>Golden Rule:</strong> If a human colleague would need clarification, your AI prompt does too.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 7: ADVANCED FRAMEWORK ===== -->
+    <section class="slide" id="slide-7" data-slide="7">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.05s">Module 06</div>
+
+        <!-- Big glowing C-R-E-A-T-E letters -->
+        <div class="create-hero animate-in" style="--delay:0.1s">
+          <span class="ch-letter" style="--lc:#7c3aed">C</span><span class="ch-letter"
+            style="--lc:#0ea5e9">R</span><span class="ch-letter" style="--lc:#10b981">E</span><span class="ch-letter"
+            style="--lc:#0077b6">A</span><span class="ch-letter" style="--lc:#90e0ef">T</span><span class="ch-letter"
+            style="--lc:#0d47a1">E</span>
+          <span class="ch-subtitle">Framework</span>
+        </div>
+
+        <!-- 6 cards across -->
+        <div class="create-cards animate-in" style="--delay:0.25s">
+          <div class="cc-card" style="--lc:#7c3aed">
+            <div class="cc-letter">C</div>
+            <div class="cc-body">
+              <div class="cc-name">Character</div>
+              <div class="cc-desc">Define the AI's role &amp; persona</div>
+              <code class="cc-ex">"Act as a senior UX designer…"</code>
+            </div>
+          </div>
+          <div class="cc-card" style="--lc:#0ea5e9">
+            <div class="cc-letter">R</div>
+            <div class="cc-body">
+              <div class="cc-name">Request</div>
+              <div class="cc-desc">State your exact task or question</div>
+              <code class="cc-ex">"Redesign our checkout flow…"</code>
+            </div>
+          </div>
+          <div class="cc-card" style="--lc:#10b981">
+            <div class="cc-letter">E</div>
+            <div class="cc-body">
+              <div class="cc-name">Examples</div>
+              <div class="cc-desc">Provide sample inputs/outputs</div>
+              <code class="cc-ex">"Like this example: [paste]"</code>
+            </div>
+          </div>
+          <div class="cc-card" style="--lc:#0077b6">
+            <div class="cc-letter">A</div>
+            <div class="cc-body">
+              <div class="cc-name">Adjustments</div>
+              <div class="cc-desc">Set tone, style &amp; constraints</div>
+              <code class="cc-ex">"Formal, concise, no jargon"</code>
+            </div>
+          </div>
+          <div class="cc-card" style="--lc:#90e0ef">
+            <div class="cc-letter">T</div>
+            <div class="cc-body">
+              <div class="cc-name">Type of Output</div>
+              <div class="cc-desc">Specify format: list, table, code…</div>
+              <code class="cc-ex">"Return as a 5-row table"</code>
+            </div>
+          </div>
+          <div class="cc-card" style="--lc:#0d47a1">
+            <div class="cc-letter">E</div>
+            <div class="cc-body">
+              <div class="cc-name">Extras</div>
+              <div class="cc-desc">Any special rules or context</div>
+              <code class="cc-ex">"Avoid mentioning competitors"</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full assembled example -->
+        <div class="create-full-ex animate-in" style="--delay:0.5s">
+          <span class="cfe-label">✨ Full Prompt</span>
+          <p class="cfe-text"><span style="color:#38bdf8">Act as a senior UX designer.</span> <span
+              style="color:#38bdf8">Redesign our e-commerce checkout flow to reduce cart abandonment.</span> <span
+              style="color:#67e8f9">Reference: Amazon's 1-click checkout.</span> <span style="color:#c084fc">Formal
+              tone, data-driven.</span> <span style="color:#f472b6">Return a 5-step improvement plan in a table.</span>
+            <span style="color:#a5b4fc">Do not suggest third-party tools.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 8: INTERACTIVE PRACTICE ===== -->
+    <section class="slide" id="slide-8" data-slide="8">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s">Module 07</div>
+        <h2 class="animate-in" style="--delay:0.2s">Practice <span class="gradient-text">Builder</span></h2>
+        <p class="lead animate-in" style="--delay:0.3s">Build a prompt using the CREATE framework below:</p>
+
+        <div class="prompt-builder animate-in" style="--delay:0.4s">
+          <div class="builder-row">
+            <label>🎭 Character (Role)</label>
+            <input type="text" id="pb-character" placeholder="e.g. Expert copywriter with 10 years experience" />
+          </div>
+          <div class="builder-row">
+            <label>📋 Request (Task)</label>
+            <input type="text" id="pb-request" placeholder="e.g. Write a product description for..." />
+          </div>
+          <div class="builder-row">
+            <label>💡 Context / Examples</label>
+            <input type="text" id="pb-context"
+              placeholder="e.g. The product is a Thai organic skincare brand targeting..." />
+          </div>
+          <div class="builder-row">
+            <label>🎨 Tone & Style</label>
+            <input type="text" id="pb-tone" placeholder="e.g. Friendly, professional, no jargon" />
+          </div>
+          <div class="builder-row">
+            <label>📄 Output Format</label>
+            <input type="text" id="pb-format" placeholder="e.g. 3 bullet points, max 50 words each" />
+          </div>
+          <button class="build-btn" onclick="buildPrompt()">⚡ Generate My Prompt</button>
+        </div>
+
+        <div class="built-prompt" id="builtPrompt" style="display:none">
+          <div class="built-label">Your Crafted Prompt:</div>
+          <div class="built-text" id="builtText"></div>
+          <button class="copy-btn" onclick="copyPrompt()">📋 Copy Prompt</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 9: REAL WORLD USE CASES ===== -->
+    <section class="slide" id="slide-9" data-slide="9">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s">Module 08</div>
+        <h2 class="animate-in" style="--delay:0.2s">Real-World <span class="gradient-text">Use Cases</span></h2>
+        <p class="lead animate-in" style="--delay:0.3s">Prompt engineering applies across every industry and role:</p>
+
+        <div class="usecase-tabs animate-in" style="--delay:0.4s">
+          <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('business', this)">💼 Business</button>
+            <button class="tab-btn" onclick="showTab('tech', this)">💻 Tech</button>
+            <button class="tab-btn" onclick="showTab('creative', this)">🎨 Creative</button>
+            <button class="tab-btn" onclick="showTab('education', this)">📚 Education</button>
+            <button class="tab-btn" onclick="showTab('qa', this)">🔬 QA / ISO 13485</button>
+            <button class="tab-btn" onclick="showTab('facility', this)">🏗️ Facility Eng.</button>
+          </div>
+
+          <div class="tab-content active" id="tab-business">
+            <div class="usecase-list">
+              <div class="uc-item">
+                <div class="uc-title">📊 Generate executive reports and data summaries</div>
+                <code
+                  class="uc-example">"Act as a senior business analyst. Summarize the Q3 sales data below into an executive report with 5 key insights, using bullet points and percentages."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">📧 Draft professional emails and proposals</div>
+                <code
+                  class="uc-example">"Write a professional follow-up email to a client who hasn't responded in 2 weeks. Tone: polite, firm. Keep it under 150 words."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">📈 Analyze market trends and competitor strategies</div>
+                <code
+                  class="uc-example">"Analyze the top 3 competitors of [Brand] in the Thai beverage market. Compare pricing, target audience, and marketing channels in a table."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🤝 Prepare for meetings and negotiations</div>
+                <code
+                  class="uc-example">"I have a vendor negotiation meeting tomorrow. Give me 5 strong opening questions and 3 tactics to lower the price by 15%."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">📋 Create SOPs, policies, and documentation</div>
+                <code
+                  class="uc-example">"Write a step-by-step SOP for onboarding a new employee in a manufacturing company. Format: numbered steps, max 2 sentences each."</code>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="tab-tech">
+            <div class="usecase-list">
+              <div class="uc-item">
+                <div class="uc-title">💾 Generate, review, and debug code</div>
+                <code
+                  class="uc-example">"Review this Python function for bugs and performance issues. Explain each problem and provide a fixed version: [paste code]"</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🏗️ Architect system designs and APIs</div>
+                <code
+                  class="uc-example">"Design a REST API for a food delivery app. List all endpoints, HTTP methods, request/response formats, and authentication approach."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🔍 Explain complex technical concepts simply</div>
+                <code
+                  class="uc-example">"Explain how WebSockets work to a junior developer with no networking background. Use a simple real-world analogy and keep it under 200 words."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🧪 Write unit tests and documentation</div>
+                <code
+                  class="uc-example">"Write Jest unit tests for this JavaScript function. Cover: happy path, edge cases, and null inputs. Add JSDoc comments: [paste function]"</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🔐 Perform security audits and code reviews</div>
+                <code
+                  class="uc-example">"Act as a senior security engineer. Review this login form code for OWASP vulnerabilities and list each issue with severity and fix: [paste code]"</code>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="tab-creative">
+            <div class="usecase-list">
+              <div class="uc-item">
+                <div class="uc-title">✍️ Write blogs, scripts, and storytelling</div>
+                <code
+                  class="uc-example">"Write a 600-word blog post about the benefits of AI in HR. Tone: conversational, SEO-friendly. Include a hook opener and 3 subheadings."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🎬 Generate video scripts and storyboards</div>
+                <code
+                  class="uc-example">"Write a 60-second YouTube script for a product demo of a wireless earphone. Include hook, value proposition, CTA, and suggested B-roll shots."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🎯 Create ad copy and marketing campaigns</div>
+                <code
+                  class="uc-example">"Write 3 variations of Facebook ad copy for a Thai spa targeting working women aged 28–40. Each version: headline + 2-line body + CTA."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🖼️ Write prompts for AI image generation</div>
+                <code
+                  class="uc-example">"Write a detailed Midjourney prompt for a futuristic Bangkok cityscape at night, neon lights, cinematic style, ultra-detailed, 8K, --ar 16:9"</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🎵 Songwriting, poetry, and creative fiction</div>
+                <code
+                  class="uc-example">"Write a 3-verse Thai pop song about missing home. Style: melancholic, poetic. Chorus should be catchy and repeatable. Include an English translation."</code>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="tab-education">
+            <div class="usecase-list">
+              <div class="uc-item">
+                <div class="uc-title">📖 Create personalized learning plans</div>
+                <code
+                  class="uc-example">"Create a 4-week Python learning plan for a complete beginner who can study 1 hour/day. Include daily topics, resources, and mini-projects."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🧩 Generate quizzes and study materials</div>
+                <code
+                  class="uc-example">"Create a 10-question multiple-choice quiz on the French Revolution for high school students. Include answer key and brief explanations."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">💬 Role-play practice conversations</div>
+                <code
+                  class="uc-example">"Act as a native English speaker. Have a job interview conversation with me for a Marketing Manager role. Give feedback after each of my answers."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🔬 Explain complex scientific concepts</div>
+                <code
+                  class="uc-example">"Explain how CRISPR gene editing works using a simple analogy. Target audience: high school students with no biology background. Max 250 words."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">📝 Summarize long texts into key points</div>
+                <code
+                  class="uc-example">"Summarize the following 2,000-word research paper into 5 bullet points. Highlight the main finding, methodology, and practical implications: [paste text]"</code>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="tab-qa">
+            <div class="usecase-list">
+              <div class="uc-item">
+                <div class="uc-title">📋 Analyze NCR (Non-Conformance Reports)</div>
+                <code
+                  class="uc-example">"Act as a QA engineer experienced in ISO 13485. Analyze the following NCR data and identify the top 3 root causes using the 5-Why method. Categorize by severity and suggest corrective actions: [paste NCR data]"</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🔍 Draft CAPA (Corrective & Preventive Action)</div>
+                <code
+                  class="uc-example">"Based on this ISO 13485 non-conformance finding, write a complete CAPA report. Include: root cause analysis, containment action, corrective action, preventive action, effectiveness check criteria, and target dates: [paste finding]"</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">📊 Summarize Audit Findings & Gaps</div>
+                <code
+                  class="uc-example">"Review these internal ISO 13485 audit findings and summarize: 1) Major non-conformities, 2) Minor non-conformities, 3) Observations, 4) Overall compliance risk level. Format as an executive table."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">⚠️ Risk Management per ISO 14971</div>
+                <code
+                  class="uc-example">"Act as a medical device risk engineer. Using ISO 14971 methodology, analyze the following hazard for a [device name]. Provide: hazard situation, harm, probability, severity, risk level (P×S), and mitigation measures: [paste hazard description]"</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🏭 Supplier Qualification & Evaluation</div>
+                <code
+                  class="uc-example">"Create a supplier qualification checklist for a critical component supplier under ISO 13485 Clause 7.4. Include: documentation requirements, on-site audit criteria, quality agreement items, and re-evaluation triggers."</code>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-content" id="tab-facility">
+            <div class="usecase-list">
+              <div class="uc-item">
+                <div class="uc-title">💧 Water System Issue Analysis</div>
+                <code
+                  class="uc-example">"Act as a facility engineer. Analyze the following water system deviation (e.g. conductivity out-of-spec, pressure drop, flow rate change). Identify possible root causes, production impact, and corrective actions per GMP/ISO standards: [paste issue data]"</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">💨 HVAC / Air System Troubleshooting</div>
+                <code
+                  class="uc-example">"Act as a cleanroom HVAC engineer. Air differential pressure in Zone A dropped below spec. Analyze possible causes (filter blockage, AHU failure, door sealing), provide an investigation checklist, and recommend immediate containment actions."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">⚡ Electrical System Failure Analysis</div>
+                <code
+                  class="uc-example">"Act as a facility electrical engineer. An unexpected power interruption occurred in production line 3. Analyze probable causes (UPS failure, breaker trip, grounding issue), list critical impact areas, and write an 8D root cause analysis report outline."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">🧹 Cleaning Validation & Deviation Analysis</div>
+                <code
+                  class="uc-example">"Act as a GMP cleaning validation engineer. Swab test on Equipment X exceeded the residue limit. Identify contamination sources, assess patient safety risk, propose CAPA, and recommend enhanced cleaning procedure steps."</code>
+              </div>
+              <div class="uc-item">
+                <div class="uc-title">📊 Utility Performance Trend Report</div>
+                <code
+                  class="uc-example">"Analyze the monthly utility data below (compressed air pressure, WFI conductivity, chilled water temp, electricity consumption). Identify deviations, early-failure trends, and recommend a preventive maintenance plan: [paste data table]"</code>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 10: LAZY PROMPTING ===== -->
+    <section class="slide" id="slide-10" data-slide="10">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s">Module 09 — Bonus</div>
+        <h2 class="animate-in" style="--delay:0.2s" data-i18n-html="s10-h2">The Art of <span class="gradient-text">Lazy
+            Prompting</span> 😴</h2>
+        <p class="lead animate-in" style="--delay:0.3s" data-i18n-html="s10-lead">Sometimes <em>less</em> is more. A
+          short, minimal prompt can be
+          surprisingly powerful — if you know exactly when to use it.</p>
+
+        <div class="two-col animate-in" style="--delay:0.4s">
+          <div class="col-left">
+            <div class="lazy-block good">
+              <div class="lazy-title" data-i18n-html="s10-works">✅ When Lazy Prompting <em>Works</em></div>
+              <ul class="lazy-list">
+                <li data-i18n="s10-w1">🧠 The AI already has context (ongoing chat, codebase visible)</li>
+                <li data-i18n="s10-w2">🐛 Simple debugging — paste the error + minimal description</li>
+                <li data-i18n="s10-w3">🔁 Minor fixes or tweaks to a previous output</li>
+                <li data-i18n="s10-w4">⚡ Quick lookups: definitions, conversions, quick facts</li>
+                <li data-i18n="s10-w5">📝 Summarizing short texts with no special format needed</li>
+              </ul>
+              <div class="lazy-example">
+                <div class="example-label" style="color:var(--green)" data-i18n="s10-lazy-good">✅ Lazy but effective
+                </div>
+                <code>"Fix this bug: [paste error]"</code>
+              </div>
+            </div>
+          </div>
+          <div class="col-right">
+            <div class="lazy-block bad">
+              <div class="lazy-title" data-i18n-html="s10-fails">❌ When Lazy Prompting <em>Fails</em></div>
+              <ul class="lazy-list">
+                <li data-i18n="s10-f1">🏗️ New feature design or complex architecture</li>
+                <li data-i18n="s10-f2">🎨 Creative work needing a specific tone or style</li>
+                <li data-i18n="s10-f3">📊 Reports where format and structure matter</li>
+                <li data-i18n="s10-f4">🔐 High-stakes outputs: legal, medical, financial</li>
+                <li data-i18n="s10-f5">🌐 Tasks requiring deep domain knowledge or constraints</li>
+              </ul>
+              <div class="lazy-example">
+                <div class="example-label" style="color:var(--red)" data-i18n="s10-lazy-bad">❌ Too lazy — vague result
+                </div>
+                <code>"Make a login system"</code>
+              </div>
+            </div>
+
+            <div class="tip-bar" style="margin-top:1rem" data-i18n-html="s10-tip">
+              💡 <strong>Golden Rule:</strong> Start lazy, then add detail only when the output disappoints. Iterate up,
+              not down.
+            </div>
+          </div>
+        </div>
+
+        <div class="lazy-tips animate-in" style="--delay:0.6s">
+          <div class="lazy-tips-title">🚀 Lazy Prompting Cheat Sheet</div>
+          <div class="lazy-pills">
+            <div class="lazy-pill" data-i18n="s10-p1">Paste the error → ask to fix</div>
+            <div class="lazy-pill" data-i18n="s10-p2">"Improve this" + paste text</div>
+            <div class="lazy-pill" data-i18n="s10-p3">"Shorter. More formal."</div>
+            <div class="lazy-pill" data-i18n="s10-p4">"Explain like I'm 5"</div>
+            <div class="lazy-pill" data-i18n="s10-p5">"Give me 3 options"</div>
+            <div class="lazy-pill" data-i18n="s10-p6">"Continue from here…"</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 11: AI AGENTS ===== -->
+    <section class="slide" id="slide-11" data-slide="11">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s" data-i18n="s11-label">Module 10</div>
+        <h2 class="animate-in" style="--delay:0.2s" data-i18n-html="s11-h2">What is an <span class="gradient-text">AI
+            Agent?</span></h2>
+
+        <div class="agent-def animate-in" style="--delay:0.3s">
+          <p class="agent-main-def" data-i18n-html="s11-def">An <strong>AI Agent</strong> is a system that can take
+            actions on your behalf using AI — based on your instructions, goals, or prompts.</p>
+          <p class="agent-metaphor" data-i18n-html="s11-metaphor">Think of it as a <u>digital co-worker</u> that follows
+            rules, learns patterns, and helps you get work done automatically.</p>
+        </div>
+
+        <div class="agent-grid animate-in" style="--delay:0.5s">
+          <div class="agent-card">
+            <h3 data-i18n="s11-cap-title">Core Capabilities</h3>
+            <ul class="agent-list">
+              <li data-i18n-html="s11-cap1"><strong>Autonomy:</strong> Operates without constant input</li>
+              <li data-i18n-html="s11-cap2"><strong>Perception:</strong> Reads data</li>
+              <li data-i18n-html="s11-cap3"><strong>Reasoning:</strong> Decides what to do based on goals</li>
+              <li data-i18n-html="s11-cap4"><strong>Action:</strong> Takes steps</li>
+            </ul>
+          </div>
+          <div class="agent-card">
+            <h3 data-i18n="s11-ben-title">Why AI Agents Matter?</h3>
+            <ul class="agent-list check-list">
+              <li data-i18n="s11-ben1">Reduces manual work (less time checking logs/emails)</li>
+              <li data-i18n="s11-ben2">Increases responsiveness (catches issues faster)</li>
+              <li data-i18n="s11-ben3">Scales best practices across shifts and locations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 12: SUMMARY & NEXT STEPS ===== -->
+    <section class="slide" id="slide-12" data-slide="12">
+      <div class="slide-content">
+        <div class="section-label animate-in" style="--delay:0.1s" data-i18n="s12-label">🎓 Graduation</div>
+        <h2 class="animate-in" style="--delay:0.2s" data-i18n-html="s12-h2">You're Now a <span
+            class="gradient-text">Prompt Engineer!</span>
+        </h2>
+
+        <div class="summary-grid animate-in" style="--delay:0.3s">
+          <div class="summary-card">
+            <div class="s-icon">✅</div>
+            <p data-i18n="s12-sum1">Understand what prompt engineering is and why it matters</p>
+          </div>
+          <div class="summary-card">
+            <div class="s-icon">✅</div>
+            <p data-i18n="s12-sum2">Know the anatomy of a great prompt: Role, Task, Context, Format</p>
+          </div>
+          <div class="summary-card">
+            <div class="s-icon">✅</div>
+            <p data-i18n="s12-sum3">Apply 6 core techniques: Zero-shot, Few-shot, CoT, and more</p>
+          </div>
+          <div class="summary-card">
+            <div class="s-icon">✅</div>
+            <p data-i18n="s12-sum4">Use the CREATE Framework for professional-level prompts</p>
+          </div>
+          <div class="summary-card">
+            <div class="s-icon">✅</div>
+            <p data-i18n="s12-sum5">Avoid common pitfalls and iterate toward better results</p>
+          </div>
+          <div class="summary-card">
+            <div class="s-icon">✅</div>
+            <p data-i18n="s12-sum6">Apply prompting to real-world tasks in any industry</p>
+          </div>
+        </div>
+
+        <div class="next-steps animate-in" style="--delay:0.6s">
+          <h3 data-i18n="s12-next">🚀 Your Next Steps</h3>
+          <div class="steps-inline">
+            <div class="step-pill" data-i18n="s12-step1">Practice daily with ChatGPT / Gemini</div>
+            <div class="step-pill" data-i18n="s12-step2">Keep a Prompt Library</div>
+            <div class="step-pill" data-i18n="s12-step3">Share & learn from peers</div>
+            <div class="step-pill" data-i18n="s12-step4">Iterate, iterate, iterate!</div>
+          </div>
+        </div>
+
+        <div class="final-quote animate-in" style="--delay:0.8s">
+          <span class="quote-mark big">"</span>
+          <span data-i18n="s12-quote">The quality of your output is a direct reflection of the quality of your
+            input.</span>
+          <span class="quote-mark big">"</span>
+        </div>
+
+        <button class="cta-btn animate-in" style="--delay:1s" onclick="goToSlide(1)">
+          <span data-i18n="btn-restart">↺ Restart Training</span>
+        </button>
+      </div>
+    </section>
+
+  </div><!-- end presentation -->
+
+  <script src="translations.js"></script>
+  <script src="confetti.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
