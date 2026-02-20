@@ -1951,81 +1951,124 @@ h3 {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 2000;
+  /* Higher z-index to be above confetti/everything */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
-  animation: fadeIn 0.3s;
+  overflow: hidden;
+  /* Avoid scrollbars on the background */
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-content {
-  background: #1a1a1a;
-  margin: 15% auto;
-  padding: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  width: 90%;
-  max-width: 500px;
+  background: linear-gradient(145deg, #1e1e1e, #121212);
+  margin: 10vh auto;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  width: 95%;
+  max-width: 480px;
   text-align: center;
   color: #fff;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(66, 133, 244, 0.1);
   position: relative;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
 }
 
 .close-modal {
-  color: #aaa;
+  color: #666;
   position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
+  top: 15px;
+  right: 25px;
+  font-size: 32px;
+  font-weight: 300;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: all 0.3s;
+  line-height: 1;
 }
 
-.close-modal:hover,
-.close-modal:focus {
-  color: #fff;
-  text-decoration: none;
+.close-modal:hover {
+  color: var(--primary);
+  transform: rotate(90deg);
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #fff, #bbb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 2rem;
+  line-height: 1.5;
 }
 
 #cert-name-input {
   width: 100%;
-  padding: 1rem;
-  margin: 1.5rem 0;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background: #2a2a2a;
+  padding: 1.2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  border: 2px solid #333;
+  background: rgba(255, 255, 255, 0.03);
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  text-align: center;
   outline: none;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
+  box-sizing: border-box;
 }
 
 #cert-name-input:focus {
   border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 15px rgba(66, 133, 244, 0.2);
+}
+
+#cert-name-input::placeholder {
+  color: #555;
 }
 
 .cert-confirm-btn {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary), #0077b6);
   color: white;
   border: none;
-  padding: 0.8rem 2rem;
+  padding: 1.2rem 2.5rem;
   font-size: 1.1rem;
-  border-radius: 50px;
+  border-radius: 14px;
   cursor: pointer;
   width: 100%;
-  font-weight: 600;
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .cert-confirm-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 150, 199, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 119, 182, 0.4);
+  filter: brightness(1.1);
+}
+
+.cert-confirm-btn:active {
+  transform: translateY(0);
+}
+
+.cert-confirm-btn:disabled {
+  background: #444;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Hidden Template Styling (Internal) */
