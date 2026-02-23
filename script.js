@@ -4,7 +4,7 @@
 
 // ── State ──────────────────────────────────
 let currentSlideIndex = 1;
-const TOTAL_SLIDES = 12;
+const TOTAL_SLIDES = 15;
 
 // ── Init ────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -68,7 +68,7 @@ function goToSlide(index) {
 
     // Trigger confetti on final slide (11)
     // Trigger confetti on final slide (12)
-    if (index === 12) {
+    if (index === 15) {
         if (typeof startConfetti === 'function') startConfetti();
     } else {
         if (typeof stopConfetti === 'function') stopConfetti();
@@ -400,66 +400,52 @@ async function generatePDF() {
     btn.textContent = 'Generating...';
     btn.disabled = true;
 
-    // Update Template
-    document.getElementById('cert-name-display').textContent = nameInput;
+    // Update Portrait Template
+    document.getElementById('cert-name-display-portrait').textContent = nameInput;
 
-    // Dates
     const now = new Date();
-    const issueDate = now.toLocaleDateString('en-GB'); // DD/MM/YYYY
-    const expireDate = new Date(now.setFullYear(now.getFullYear() + 3)).toLocaleDateString('en-GB');
+    // Example date range matching reference "17-18 January 2024"
+    const day = now.getDate();
+    const month = now.toLocaleString('en-GB', { month: 'long' });
+    const year = now.getFullYear();
+    document.getElementById('cert-date-range').textContent = `${day} ${month} ${year}`;
 
-    document.getElementById('cert-issue-date').textContent = issueDate;
-    document.getElementById('cert-expire-date').textContent = expireDate;
+    await new Promise(r => setTimeout(r, 100));
 
-    // Wait a moment for DOM to update and images to load
     const element = document.getElementById('certificate-template');
-    const images = element.getElementsByTagName('img');
 
-    const loadPromises = Array.from(images).map(img => {
-        if (img.complete) return Promise.resolve();
-        return new Promise((resolve) => {
-            img.onload = resolve;
-            img.onerror = resolve; // Continue even if one fails
-        });
-    });
-
-    await Promise.all(loadPromises);
-
-    // Also wait for decode to be sure
-    const decodePromises = Array.from(images).map(img => {
-        if (img.decode) return img.decode().catch(() => { });
-        return Promise.resolve();
-    });
-
-    await Promise.all(decodePromises);
-    await new Promise(r => setTimeout(r, 200));
-
-    // Trick: Temporarily move template into view but behind everything for capture
+    // Save current styles before modifying for capture
     const originalLeft = element.style.left;
     const originalZIndex = element.style.zIndex;
+    const originalPosition = element.style.position;
+    const originalTop = element.style.top;
+
+    element.style.position = 'fixed';
     element.style.left = '0';
     element.style.top = '0';
-    element.style.zIndex = '-999';
+    element.style.zIndex = '-9999';
 
     try {
         const canvas = await html2canvas(element, {
-            scale: 2, // High resolution
+            scale: 2,
             useCORS: true,
             logging: false,
             backgroundColor: '#ffffff',
-            width: 1123,
-            height: 794
+            width: 794,
+            height: 1123
         });
 
-        // Restore
+        // Restore original styles
+        element.style.position = originalPosition;
         element.style.left = originalLeft;
+        element.style.top = originalTop;
         element.style.zIndex = originalZIndex;
 
         const imgData = canvas.toDataURL('image/png');
 
-        // A4 landscape: 297mm x 210mm
+        // A4 portrait: 210mm x 297mm
         const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF('l', 'mm', 'a4');
+        const pdf = new jsPDF('p', 'mm', 'a4');
 
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
