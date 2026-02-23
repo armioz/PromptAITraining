@@ -615,7 +615,7 @@ const TRANSLATIONS = {
         'cert-completed': 'ได้ผ่านการอบรมหลักสูตร',
         'cert-course-name': '"การใช้งาน Prompt Engineering อย่างมืออาชีพ"',
         'cert-location': 'ณ บริษัท โฮยา ลำพูน จำกัด',
-        'cert-ceo': 'นายปิยะ น้อยคำ',
+        'cert-ceo': 'นายปิยะ เนยคำ',
         'cert-ceo-title': 'ประธานบริษัท โฮยา ลำพูน จำกัด',
         'cert-during': 'เมื่อวันที่',
     }

@@ -2039,9 +2039,9 @@ h3 {
 }
 
 .cert-confirm-btn {
-  background: linear-gradient(135deg, var(--primary), #0077b6);
+  background: #1a1a1a;
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.2rem 2.5rem;
   font-size: 1.1rem;
   border-radius: 14px;
@@ -2051,13 +2051,12 @@ h3 {
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .cert-confirm-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(0, 119, 182, 0.4);
-  filter: brightness(1.1);
+  background: #252525;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .cert-confirm-btn:active {
@@ -2170,6 +2169,11 @@ h3 {
   font-family: 'Times New Roman', serif;
 }
 
+:lang(th) .cert-title-big {
+  font-size: 3rem;
+  letter-spacing: 4px;
+}
+
 .cert-subtitle-mid {
   font-size: 2.2rem;
   letter-spacing: 8px;
@@ -2177,6 +2181,11 @@ h3 {
   margin: 5px 0 0 0;
   font-weight: 400;
   font-family: 'Arial', sans-serif;
+}
+
+:lang(th) .cert-subtitle-mid {
+  font-size: 1.8rem;
+  letter-spacing: 4px;
 }
 
 .cert-present-text {
@@ -2229,11 +2238,16 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 .cert-signature-area img {
   height: 90px;
   margin-bottom: -15px;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 .cert-sig-line {

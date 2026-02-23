@@ -429,17 +429,11 @@ async function generatePDF() {
         const canvas = await html2canvas(element, {
             scale: 2,
             useCORS: true,
-            logging: false,
+            logging: true,
             backgroundColor: '#ffffff',
             width: 794,
             height: 1123
         });
-
-        // Restore original styles
-        element.style.position = originalPosition;
-        element.style.left = originalLeft;
-        element.style.top = originalTop;
-        element.style.zIndex = originalZIndex;
 
         const imgData = canvas.toDataURL('image/png');
 
@@ -456,9 +450,35 @@ async function generatePDF() {
         closeCertModal();
     } catch (err) {
         console.error('PDF Gen Error:', err);
-        alert('Failed to generate PDF. Please check console for details.');
+        alert('Failed to generate PDF: ' + err.message);
     } finally {
+        // Restore original styles
+        element.style.position = originalPosition;
+        element.style.left = originalLeft;
+        element.style.top = originalTop;
+        element.style.zIndex = originalZIndex;
+
         btn.innerHTML = originalText;
         btn.disabled = false;
     }
 }
+
+// ── Security / Anti-Copy Measures ────────────────────────────
+document.addEventListener('contextmenu', function (e) {
+    if (e.target.closest('#certificate-template') || e.target.closest('.cert-signature-area')) {
+        e.preventDefault();
+    }
+});
+
+document.addEventListener('keydown', function (e) {
+    // Prevent F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J, Ctrl+U
+    if (e.keyCode == 123) {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 67 || e.keyCode == 74)) {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.keyCode == 85) {
+        e.preventDefault();
+    }
+});
