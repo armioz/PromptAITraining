@@ -445,7 +445,7 @@ async function generatePDF() {
         const pdfHeight = pdf.internal.pageSize.getHeight();
 
         pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-        pdf.save(`Prompt_Engineering_Certificate_${nameInput.replace(/\s+/g, '_')}.pdf`);
+        pdf.save(`Communicating_Effectively_with_AI_Certificate_${nameInput.replace(/\s+/g, '_')}.pdf`);
 
         closeCertModal();
     } catch (err) {

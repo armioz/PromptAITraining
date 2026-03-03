@@ -45,6 +45,7 @@ body {
   background: var(--bg-dark);
   color: var(--text-primary);
   font-family: var(--font);
+  font-size: 24px;
 }
 
 /* ── CANVAS BG ── */
@@ -176,7 +177,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 120px 60px 80px;
+  padding: 40px 100px 40px 60px;
   opacity: 0;
   pointer-events: none;
   transform: translateX(60px);
@@ -197,7 +198,7 @@ body {
 }
 
 .slide-content {
-  max-width: 1100px;
+  max-width: 1600px;
   width: 100%;
   /* allow content to be full height and scrollable inside slide */
   min-height: 0;
@@ -485,7 +486,7 @@ h3 {
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 1.5rem;
   margin-top: 0.5rem;
 }
 
@@ -628,7 +629,7 @@ h3 {
   background: var(--bg-glass);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 1.2rem;
+  padding: 0.8rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -704,7 +705,7 @@ h3 {
   background: var(--bg-glass);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1rem 1.2rem;
+  padding: 0.6rem 0.8rem;
 }
 
 .mistake-before,
@@ -1759,10 +1760,10 @@ h3 {
   border: none;
   color: var(--text-secondary);
   font-family: var(--font);
-  font-size: 0.88rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  padding: 0.9rem 1rem;
-  min-height: 52px;
+  padding: 1.2rem 1.5rem;
+  min-height: 70px;
   cursor: pointer;
   pointer-events: auto;
   transition: all 0.25s;
@@ -2161,7 +2162,7 @@ h3 {
 }
 
 .cert-title-big {
-  font-size: 4.5rem;
+  font-size: 72px;
   letter-spacing: 12px;
   color: #000;
   margin: 0;
@@ -2170,12 +2171,12 @@ h3 {
 }
 
 :lang(th) .cert-title-big {
-  font-size: 3rem;
+  font-size: 48px;
   letter-spacing: 4px;
 }
 
 .cert-subtitle-mid {
-  font-size: 2.2rem;
+  font-size: 35px;
   letter-spacing: 8px;
   color: #000;
   margin: 5px 0 0 0;
@@ -2184,12 +2185,12 @@ h3 {
 }
 
 :lang(th) .cert-subtitle-mid {
-  font-size: 1.8rem;
+  font-size: 29px;
   letter-spacing: 4px;
 }
 
 .cert-present-text {
-  font-size: 1.2rem;
+  font-size: 19px;
   color: #444;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -2197,7 +2198,7 @@ h3 {
 }
 
 .cert-recipient-name {
-  font-size: 3.5rem;
+  font-size: 56px;
   color: #0056b3;
   font-weight: bold;
   margin: 0 0 10px 0;
@@ -2212,13 +2213,13 @@ h3 {
 }
 
 .cert-success-text {
-  font-size: 1.2rem;
+  font-size: 19px;
   color: #444;
   margin-bottom: 10px;
 }
 
 .cert-training-name {
-  font-size: 1.8rem;
+  font-size: 29px;
   color: #0056b3;
   font-style: italic;
   font-weight: bold;
@@ -2226,7 +2227,7 @@ h3 {
 }
 
 .cert-meta-info {
-  font-size: 1.3rem;
+  font-size: 21px;
   color: #333;
   line-height: 1.6;
   margin-bottom: 60px;
@@ -2258,14 +2259,14 @@ h3 {
 }
 
 .cert-sig-name {
-  font-size: 1.4rem;
+  font-size: 22px;
   font-weight: bold;
   margin: 0;
   color: #000;
 }
 
 .cert-sig-title {
-  font-size: 1rem;
+  font-size: 16px;
   color: #444;
   margin: 2px 0 0 0;
 }
